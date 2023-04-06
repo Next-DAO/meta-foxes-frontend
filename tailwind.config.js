@@ -26,8 +26,9 @@ module.exports = {
       },
       backgroundColor: {
         primary: "#1F2D91",
-        secondary: "#E9E9E9",
-        tertiary: "#F4F4F4",
+        secondary: "#2F3CB4",
+        tertiary: "#303030",
+        fox: "#FF9321",
       },
     },
   },
