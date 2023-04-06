@@ -7,7 +7,6 @@ const cakeNTrufflesFont = localFont({
   src: "./cake-n-truffles.ttf",
   variable: "--font-cake-n-truffles",
 });
-console.log("cakeNTrufflesFont", cakeNTrufflesFont);
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

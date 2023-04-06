@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { LanguageDropdown } from "./LanguageDropdown";
 
 interface NavItem {
   text: string;
@@ -18,7 +19,7 @@ const Header: React.FC = () => {
             <span className="text-xl font-sans text-white ">META FOXES</span>
           </a>
           <nav className="flex space-x-10 auto">
-            <button className="">change language</button>
+            <LanguageDropdown />
           </nav>
         </div>
       </div>
