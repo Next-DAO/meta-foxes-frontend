@@ -1,12 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import { LanguageDropdown } from "../components/LanguageDropdown";
-
-const inter = Inter({ subsets: ["latin"] });
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
+  const { t } = useTranslation();
   return (
     <>
       <Head>
@@ -16,8 +13,9 @@ export default function Home() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <main>
-        {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
-        <LanguageDropdown />
+        <h1 className="text-3xl font-bold underline">
+          {t("Welcome to React")}
+        </h1>
       </main>
     </>
   );

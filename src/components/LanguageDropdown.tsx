@@ -4,7 +4,6 @@ import Image from "next/image";
 
 export const LanguageDropdown = () => {
   return (
-    // <div className="fixed top-16 w-56 text-right">
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex w-full justify-center  px-4 py-2">
