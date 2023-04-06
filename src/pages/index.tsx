@@ -1,6 +1,7 @@
 import Head from "next/head";
-import { LanguageDropdown } from "../components/LanguageDropdown";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import type { GetStaticProps } from "next";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -13,10 +14,14 @@ export default function Home() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <main>
-        <h1 className="text-3xl font-bold underline">
-          {t("Welcome to React")}
-        </h1>
+        <h1 className="text-3xl font-bold underline">{t("introduction")}</h1>
       </main>
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? "en", ["common"])),
+  },
+});

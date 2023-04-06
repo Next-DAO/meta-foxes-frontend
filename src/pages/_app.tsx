@@ -1,4 +1,5 @@
-import "../i18n";
+import { appWithTranslation } from "next-i18next";
+// import "../i18n";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Header from "../components/Header";
@@ -9,7 +10,7 @@ const cakeNTrufflesFont = localFont({
   variable: "--font-cake-n-truffles",
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <div className={`${cakeNTrufflesFont.variable} `}>
       <Header />
@@ -17,3 +18,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </div>
   );
 }
+
+export default appWithTranslation(App);
