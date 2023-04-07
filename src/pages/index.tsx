@@ -21,14 +21,14 @@ export default function Home() {
         <section className="bg-secondary pb-36">
           <div className="container mx-auto ">
             <div className="flex justify-center">
-              <Image src="/banner.png" alt="banner" width={1047} height={577} />
+              <Image src="/banner.png" alt="banner" width={1000} height={577} />
             </div>
             <div className="flex justify-center">
               <Image
                 src="/introduction.png"
                 alt="introduction"
-                width={900}
-                height={685}
+                width={906}
+                height={620}
               />
             </div>
           </div>

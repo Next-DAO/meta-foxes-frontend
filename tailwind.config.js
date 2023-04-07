@@ -5,20 +5,20 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      sm: "640px",
-      // => @media (min-width: 640px) { ... }
+      sm: "390px",
+      // => @media (min-width: 390px) { ... }
 
-      md: "768px",
-      // => @media (min-width: 768px) { ... }
+      md: "780px",
+      // => @media (min-width: 780px) { ... }
 
-      lg: "1200px",
-      // => @media (min-width: 1024px) { ... }
+      lg: "1170px",
+      // => @media (min-width: 1170px) { ... }
 
-      xl: "1200px",
-      // => @media (min-width: 1280px) { ... }
+      xl: "1170px",
+      // => @media (min-width: 1170px) { ... }
 
-      "2xl": "1200px",
-      // => @media (min-width: 1536px) { ... }
+      "2xl": "1170px",
+      // => @media (min-width: 1170px) { ... }
     },
     extend: {
       fontFamily: {

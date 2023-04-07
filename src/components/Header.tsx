@@ -13,10 +13,12 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <a href="#" className="flex items-center">
-            <div className="relative h-8 w-8 mr-4">
-              <Image src="/logo.png" alt="Logo" fill={true} sizes={"32px"} />
+            <div className="relative w-6  md:w-9 aspect-square">
+              <Image src="/logo.png" alt="Logo" fill />
             </div>
-            <span className="text-xl font-sans text-white ">META FOXES</span>
+            <span className="text-l md:text-2xl font-sans text-white ml-3">
+              META FOXES
+            </span>
           </a>
           <nav className="flex space-x-10 auto">
             <LanguageDropdown />
