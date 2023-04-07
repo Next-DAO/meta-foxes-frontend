@@ -6,14 +6,20 @@ module.exports = {
   theme: {
     screens: {
       sm: "390px",
-      md: "1024px",
-      lg: "1920px",
+      md: "780px",
+      lg: "1024px",
       xl: "1920px",
-      "2xl": "1920px",
     },
     extend: {
+      fontSize: {
+        xxs: ["10px", "13.72px"],
+      },
       fontFamily: {
         sans: ["var(--font-cake-n-truffles)", ...defaultTheme.fontFamily.sans],
+        serif: [
+          "var(--font-alibaba-PuHuiTi)",
+          ...defaultTheme.fontFamily.serif,
+        ],
       },
       backgroundColor: {
         primary: "#1F2D91",
@@ -23,6 +29,8 @@ module.exports = {
       },
       width: {
         95: "23.75rem",
+        189: "47.25rem",
+        225: "56.25rem",
         250: "62.5rem",
       },
     },

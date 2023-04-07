@@ -19,19 +19,19 @@ export default function Home() {
       </Head>
       <main className="bg-black">
         <section className="bg-secondary pb-36">
-          <div className="container mx-auto pt-3 md:pt-9">
+          <div className="mx-auto pt-3 md:pt-9">
             <div className="flex justify-center">
-              <div className="relative w-95 md:w-250 aspect-[1000/577]">
+              <div className="relative w-95 md:w-189 lg:w-250 aspect-[1000/577]">
                 <Image src="/banner.png" alt="banner" fill />
               </div>
             </div>
-            <div className="flex justify-center">
-              <Image
-                src="/introduction.png"
-                alt="introduction"
-                width={906}
-                height={620}
-              />
+            <div className="flex justify-center relative">
+              <div className="relative w-[366px] md:w-[697px] lg:w-[906px] aspect-[366/210]">
+                <Image src="/introduction.png" alt="introduction" fill />
+                <p className="absolute text-white text-xxs md:text-xl lg:text-2xl pt-12 md:pt-[85px] lg:pt-32 px-8 md:px-4 lg:px-16 text-center font-serif">
+                  {t("introduction")}
+                </p>
+              </div>
             </div>
           </div>
         </section>
