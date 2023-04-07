@@ -13,7 +13,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <a href="#" className="flex items-center">
-            <div className="relative w-6  md:w-9 aspect-square">
+            <div className="relative w-6 md:w-9 aspect-square">
               <Image src="/logo.png" alt="Logo" fill />
             </div>
             <span className="text-l md:text-2xl font-sans text-white ml-3">

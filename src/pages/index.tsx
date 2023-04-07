@@ -19,9 +19,11 @@ export default function Home() {
       </Head>
       <main className="bg-black">
         <section className="bg-secondary pb-36">
-          <div className="container mx-auto ">
+          <div className="container mx-auto pt-3 md:pt-9">
             <div className="flex justify-center">
-              <Image src="/banner.png" alt="banner" width={1000} height={577} />
+              <div className="relative w-95 md:w-250 aspect-[1000/577]">
+                <Image src="/banner.png" alt="banner" fill />
+              </div>
             </div>
             <div className="flex justify-center">
               <Image
