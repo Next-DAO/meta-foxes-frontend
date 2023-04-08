@@ -17,6 +17,15 @@ export const Intro = () => {
             <p className="absolute text-white text-xxs md:text-xl lg:text-2xl pt-12 md:pt-[85px] lg:pt-32 px-8 md:px-4 lg:px-16 text-center font-serif">
               {t("introduction")}
             </p>
+            <div className="absolute bottom-[10px] right-[20px]">
+              <a
+                className="block w-7 aspect-square bg-[#5762e4]"
+                href="https://github.com/Next-DAO"
+                target="__blank"
+              >
+                <Image src="/github.svg" alt="introduction" fill />
+              </a>
+            </div>
           </div>
         </div>
       </div>
