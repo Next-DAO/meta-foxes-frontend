@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "@/styles/Home.module.css";
 
 export const Foxes = () => {
   return (
@@ -37,10 +36,7 @@ export const Foxes = () => {
           <div className="md:hidden lg:block relative w-[120px] md:w-[160px] aspect-square">
             <Image src={`/foxes/fox21.png`} alt={`fox21`} fill />
           </div>
-          {/* TODO: use bg-gradient */}
-          <div
-            className={`${styles.customization} col-start-1 lg:col-start-2 xl:col-start-3 col-span-3 md:col-span-4 lg:col-span-3  row-start-5 md:row-start-4 xl:row-start-2 row-span-2 flex justify-center`}
-          >
+          <div className="border-4 border-black rounded-xl bg-gradient-to-b from-[#303CB5] to-[#9584FE] col-start-1 lg:col-start-2 xl:col-start-3 col-span-3 md:col-span-4 lg:col-span-3  row-start-5 md:row-start-4 xl:row-start-2 row-span-2 flex justify-center">
             <div className="relative w-[313.7px] md:w-[432px] h-[228.77px] md:h-[315px] -mt-6 md:-mt-8">
               <Image src="/customization.png" alt="customization" fill />
             </div>

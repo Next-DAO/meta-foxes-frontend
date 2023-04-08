@@ -36,7 +36,7 @@ export const Partners: FC = () => {
             href="https://www.smartdeer.work/"
             target="__blank"
           >
-            <div className="relative w-[132px] h-6">
+            <div className="relative w-[132px] md:w-[202.5px] h-6 md:h-[35.17px]">
               <Image src="/smartdeer.png" alt="smartdeer" fill />
             </div>
           </a>
