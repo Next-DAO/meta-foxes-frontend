@@ -10,7 +10,7 @@ interface NavItem {
 const Header: React.FC = () => {
   return (
     <header className="bg-primary shadow">
-      <div className="lg:w-[1024px] mx-auto px-4 ">
+      <div className="lg:w-[1024px] mx-auto px-8">
         <div className="flex justify-between items-center py-4">
           <a href="#" className="flex items-center">
             <div className="relative w-6 md:w-9 aspect-square">

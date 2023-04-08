@@ -4,8 +4,7 @@ import { useTranslation } from "next-i18next";
 export const Intro = () => {
   const { t } = useTranslation();
   return (
-    //  TODO: remove pointer-events-none and try popover in language select
-    <section className="bg-secondary pb-20 md:pb-28 xl:pb-36 pointer-events-none">
+    <section className="bg-secondary pb-20 md:pb-28 xl:pb-36 ">
       <div className="mx-auto pt-3 md:pt-9">
         <div className="flex justify-center">
           <div className="relative w-95 md:w-189 lg:w-250 aspect-[1000/577]">
