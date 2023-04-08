@@ -14,9 +14,16 @@ const alibabaPuHuiTi = localFont({
   variable: "--font-alibaba-PuHuiTi",
 });
 
+const jingNanYuanMo = localFont({
+  src: "./JingNanYuanMo.otf",
+  variable: "--font-JingNanYuanMo",
+});
+
 function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${cakeNTrufflesFont.variable} ${alibabaPuHuiTi.variable}`}>
+    <div
+      className={`${cakeNTrufflesFont.variable} ${alibabaPuHuiTi.variable} ${jingNanYuanMo.variable}`}
+    >
       <Header />
       <Component {...pageProps} />
     </div>

@@ -1,8 +1,12 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-import styles from "../styles/common.module.css";
 
 export const Foxes = () => {
+  const router = useRouter();
+  const isZhCn = router.locale === "zh_cn";
+  const customizationBtnStyle = isZhCn ? "font-jingNanYuanMo" : "font-sans";
+
   const { t } = useTranslation();
   return (
     <section className="bg-tertiary py-20">
@@ -51,7 +55,9 @@ export const Foxes = () => {
             <div className="absolute bottom-6 left-0 right-0 flex justify-center">
               <a
                 href="#"
-                className={`${styles.border} text-2xl text-white text-center font-sans bg-secondary py-1.5 w-[260px]`}
+                className={`${customizationBtnStyle} text-2xl text-white text-center bg-secondary rounded-full border-black
+                            w-[260px] h-[44px] leading-[44px] border-2 shadow-[0_0_0_2px_#ff9111,0_0_0_4px_#000]
+                            md:text-4xl md:w-[359px] md:h-[60px] md:leading-[56px] md:border-4 md:shadow-[0_0_0_4px_#ff9111,0_0_0_8px_#000]`}
               >
                 {t("customization")}
               </a>

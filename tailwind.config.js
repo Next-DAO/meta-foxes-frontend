@@ -20,6 +20,7 @@ module.exports = {
           "var(--font-alibaba-PuHuiTi)",
           ...defaultTheme.fontFamily.serif,
         ],
+        jingNanYuanMo: ["var(--font-JingNanYuanMo)"],
       },
       backgroundColor: {
         primary: "#1F2D91",
