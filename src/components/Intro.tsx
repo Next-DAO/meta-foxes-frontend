@@ -82,16 +82,16 @@ export const Intro = () => {
           {/* lg */}
           <div
             className="relative w-[900px] bg-tertiary mt-16 mb-48
-                       border-x-4 border-black shadow-[0_0_0_4px_#ff9111,0_0_0_8px_#000]
+                       border-x-4 border-black shadow-[0_0_0_6px_#ff9111,0_0_0_10px_#000]
                        hidden lg:block"
           >
             <p className="text-white text-2xl text-center font-serif px-16 pt-12 pb-5">
               {t("introduction")}
             </p>
-            <div className="absolute left-[-13px] right-[-13px] top-[-80px] h-[108px]">
+            <div className="absolute left-[-14px] right-[-14px] top-[-80px] h-[108px]">
               <Image src="/intro-top-lg.png" alt="intro top border" fill />
             </div>
-            <div className="absolute left-[-13px] right-[-15px] bottom-[-180px] h-[186px]">
+            <div className="absolute left-[-14px] right-[-16px] bottom-[-180px] h-[186px]">
               <Image src="/intro-bottom-lg.png" alt="intro top border" fill />
             </div>
             {links}
