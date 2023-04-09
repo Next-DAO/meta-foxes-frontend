@@ -8,7 +8,7 @@ export const Footer = () => {
           <Image src="/ship.png" alt="ship" fill />
         </div>
       </div>
-      <p className="text-white font-serif text-center">
+      <p className="text-white font-notoSans text-center">
         {`All rights reserved by NextDAO © ${new Date().getFullYear()}`}
       </p>
     </section>

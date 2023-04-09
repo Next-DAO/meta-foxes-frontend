@@ -25,10 +25,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-cake-n-truffles)", ...defaultTheme.fontFamily.sans],
-        serif: [
-          "var(--font-alibaba-PuHuiTi)",
-          ...defaultTheme.fontFamily.serif,
-        ],
+        notoSans: ["var(--font-noto-sans)"],
         jingNanYuanMo: ["var(--font-JingNanYuanMo)"],
       },
       backgroundColor: {

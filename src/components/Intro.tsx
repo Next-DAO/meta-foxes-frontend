@@ -49,7 +49,7 @@ export const Intro = () => {
                        border-x-2 border-black shadow-[0_0_0_2px_#ff9111,0_0_0_4px_#000]
                        md:hidden"
           >
-            <p className="text-white text-sm text-center font-serif px-4 py-2">
+            <p className="text-white text-sm text-center font-notoSans px-4 py-2">
               {t("introduction")}
             </p>
             <div className="absolute left-[-6px] right-[-6px] top-[-40px] h-[44px]">
@@ -67,7 +67,7 @@ export const Intro = () => {
                        border-x-4 border-black shadow-[0_0_0_4px_#ff9111,0_0_0_8px_#000]
                        hidden md:block lg:hidden"
           >
-            <p className="text-white text-xl text-center font-serif px-4 pt-7 pb-2">
+            <p className="text-white text-xl text-center font-notoSans px-4 pt-7 pb-2">
               {t("introduction")}
             </p>
             <div className="absolute left-[-11.5px] right-[-12px] top-[-60px] h-[82px]">
@@ -85,7 +85,7 @@ export const Intro = () => {
                        border-x-4 border-black shadow-[0_0_0_6px_#ff9111,0_0_0_10px_#000]
                        hidden lg:block"
           >
-            <p className="text-white text-2xl text-center font-serif px-16 pt-12 pb-5">
+            <p className="text-white text-2xl text-center font-notoSans px-16 pt-12 pb-5">
               {t("introduction")}
             </p>
             <div className="absolute left-[-14px] right-[-14px] top-[-80px] h-[108px]">

@@ -33,7 +33,7 @@ export const LanguageDropdown = () => {
                 <button
                   className={`${
                     active ? "text-yellow-400" : "text-white"
-                  }  flex justify-center w-full rounded-md px-2 py-2 text-sm `}
+                  }  flex justify-center w-full rounded-md px-2 py-2 text-sm font-notoSans`}
                   onClick={() => setLocaleCookie("en")}
                 >
                   ENGLISH
@@ -48,7 +48,7 @@ export const LanguageDropdown = () => {
                 <button
                   className={`${
                     active ? "text-yellow-400" : "text-white"
-                  } flex justify-center w-full rounded-md px-2 py-2 text-sm`}
+                  } flex justify-center w-full rounded-md px-2 py-2 text-sm font-notoSans`}
                   onClick={() => setLocaleCookie("zh")}
                 >
                   简体中文
