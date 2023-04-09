@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Header from "../components/Header";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/react";
 
 const cakeNTrufflesFont = localFont({
   src: "./cake-n-truffles.ttf",
@@ -26,6 +27,7 @@ function App({ Component, pageProps }: AppProps) {
     >
       <Header />
       <Component {...pageProps} />
+      <Analytics />
     </div>
   );
 }
