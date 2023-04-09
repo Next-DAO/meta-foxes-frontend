@@ -7,7 +7,7 @@ import { Partners } from "../components/Partners";
 import { Footer } from "../components/Footer";
 
 export default function Home() {
-  const separator = <div className="h-1 bg-fox my-1" />;
+  const separator = <div className="bg-fox h-0.5 my-0.5 md:h-1 md:my-1" />;
   return (
     <>
       <Head>

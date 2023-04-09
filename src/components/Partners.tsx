@@ -1,11 +1,44 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { FC } from "react";
+import { useTranslation } from "next-i18next";
 
 export const Partners: FC = () => {
+  const { t } = useTranslation();
+  const router = useRouter();
+  const isZhCn = router.locale === "zh_cn";
+  const customizationBtnStyle = isZhCn ? "font-jingNanYuanMo" : "font-sans";
   const aClasses =
     "block flex items-center justify-center bg-white w-[177px] md:w-[264px] h-[64px] md:h-[96px] border-4 rounded-lg border-black";
+
   return (
-    <section className="bg-secondary py-12 md:py-24 xl:py-28">
+    <section className="relative bg-secondary py-12 md:py-24 xl:py-28">
+      <div className="absolute -top-[52px] md:-top-32 left-0 right-0 flex flex-col items-center">
+        <div className="relative flex justify-between w-[82px] md:w-[201px] top-[-0.5px]">
+          <div className="relative w-[27px] md:w-[66.2px] h-[32.6px] md:h-[80px]">
+            <Image src="/ear.svg" alt="ear" fill />
+          </div>
+          <div className="relative w-[27px] md:w-[66.2px] h-[32.6px] md:h-[80px] transform -scale-x-100">
+            <Image src="/ear.svg" alt="ear" fill />
+          </div>
+        </div>
+        <div className="flex justify-between w-[246px] md:w-[604px]">
+          <div className="relative w-6 md:w-[59px] aspect-square">
+            <Image src="/claw.svg" alt="claw" fill />
+          </div>
+          <a
+            href="#"
+            className={`${customizationBtnStyle} text-base text-white text-center bg-secondary rounded-full border-black
+                            w-[134px] h-[34px] leading-[34px] border-2 shadow-[0_0_0_2px_#ff9111,0_0_0_4px_#000]
+                            md:text-4xl md:w-[340px] md:h-[92px] md:leading-[92px] md:border-4 md:shadow-[0_0_0_4px_#ff9111,0_0_0_8px_#000]`}
+          >
+            {t("partners")}
+          </a>
+          <div className="relative w-6 md:w-[59px] aspect-square transform -scale-x-100">
+            <Image src={"/claw.svg"} alt="claw" fill />
+          </div>
+        </div>
+      </div>
       <div className="flex justify-center">
         <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
           <a
