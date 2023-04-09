@@ -26,14 +26,13 @@ export const Partners: FC = () => {
           <div className="relative w-6 md:w-[59px] aspect-square">
             <Image src="/claw.svg" alt="claw" fill />
           </div>
-          <a
-            href="#"
+          <div
             className={`${customizationBtnStyle} text-base text-white text-center bg-secondary rounded-full border-black
                             w-[134px] h-[34px] leading-[34px] border-2 shadow-[0_0_0_2px_#ff9111,0_0_0_4px_#000]
                             md:text-4xl md:w-[340px] md:h-[92px] md:leading-[92px] md:border-4 md:shadow-[0_0_0_4px_#ff9111,0_0_0_8px_#000]`}
           >
             {t("partners")}
-          </a>
+          </div>
           <div className="relative w-6 md:w-[59px] aspect-square transform -scale-x-100">
             <Image src={"/claw.svg"} alt="claw" fill />
           </div>
