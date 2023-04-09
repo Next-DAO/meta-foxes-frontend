@@ -49,8 +49,11 @@ export const Foxes = () => {
                       col-start-1 lg:col-start-2 xl:col-start-3 col-span-3 md:col-span-4 lg:col-span-3 row-start-5 md:row-start-4 xl:row-start-2 row-span-2 
                       flex justify-center"
           >
-            <div className="relative w-[313.7px] md:w-[432px] h-[228.77px] md:h-[315px] -mt-6 md:-mt-8">
+            <div className="relative w-[313.7px] md:w-[432px] h-[228.77px] md:h-[315px] -mt-6 md:-mt-8  animate-floating">
               <Image src="/customization.png" alt="customization" fill />
+            </div>
+            <div className="absolute w-[336.7px] md:w-[463px] h-[214.97px] md:h-[296px] bottom-0 animate-pulse">
+              <Image src="/stars.png" alt="stars" fill />
             </div>
             <div className="absolute bottom-6 left-0 right-0 flex justify-center">
               <a
