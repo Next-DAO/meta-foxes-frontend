@@ -39,7 +39,7 @@ export const Intro = () => {
       <div className="mx-auto pt-3 md:pt-9">
         <div className="flex justify-center">
           <div className="relative w-95 md:w-189 lg:w-250 aspect-[1000/577]">
-            <Image src="/banner.png" alt="banner" fill />
+            <Image src="/banner.png" alt="banner" fill priority />
           </div>
         </div>
         <div className="flex justify-center relative">

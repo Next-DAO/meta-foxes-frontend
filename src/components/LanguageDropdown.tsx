@@ -3,6 +3,10 @@ import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+const setLocaleCookie = (locale: "en" | "zh") => {
+  document.cookie = `NEXT_LOCALE=${locale}; max-age=31536000; path=/`;
+};
+
 export const LanguageDropdown = () => {
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -30,6 +34,7 @@ export const LanguageDropdown = () => {
                   className={`${
                     active ? "text-yellow-400" : "text-white"
                   }  flex justify-center w-full rounded-md px-2 py-2 text-sm `}
+                  onClick={() => setLocaleCookie("en")}
                 >
                   ENGLISH
                 </button>
@@ -39,11 +44,12 @@ export const LanguageDropdown = () => {
           <div className="w-2/3 h-px bg-white mx-auto"></div>
           <Menu.Item>
             {({ active }) => (
-              <Link href="/zh_cn" locale="zh_cn">
+              <Link href="/zh" locale="zh">
                 <button
                   className={`${
                     active ? "text-yellow-400" : "text-white"
                   } flex justify-center w-full rounded-md px-2 py-2 text-sm`}
+                  onClick={() => setLocaleCookie("zh")}
                 >
                   简体中文
                 </button>

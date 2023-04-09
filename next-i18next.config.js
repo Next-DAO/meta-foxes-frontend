@@ -3,6 +3,6 @@ module.exports = {
   reloadOnPrerender: process.env.NODE_ENV === "development",
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "zh_cn"],
+    locales: ["en", "zh"],
   },
 };
