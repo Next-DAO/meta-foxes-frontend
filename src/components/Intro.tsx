@@ -3,6 +3,37 @@ import { useTranslation } from "next-i18next";
 
 export const Intro = () => {
   const { t } = useTranslation();
+  const links = (
+    <div
+      className="absolute flex flex-row justify-between
+                    w-[115px] bottom-[-61px] right-[15px]
+                    md:w-[220px] md:bottom-[-117px] md:right-[22px]
+                    lg:w-[280px] lg:bottom-[-151px] lg:right-[35px]
+                    "
+    >
+      <a
+        className="block relative w-7 md:w-12 lg:w-16 aspect-square bg-[#5762e4]"
+        href="https://opensea.io/collection/meta-foxes-genesis"
+        target="__blank"
+      >
+        <Image src="/opensea.svg" alt="opensea" fill />
+      </a>
+      <a
+        className="block relative w-7 md:w-12 lg:w-16 aspect-square bg-[#5762e4]"
+        href="https://etherscan.io/token/0xc599f72644140fe4d00ef9574100f636a30d923d"
+        target="__blank"
+      >
+        <Image src="/etherscan.svg" alt="etherscan" fill />
+      </a>
+      <a
+        className="block relative w-7 md:w-12 lg:w-16 aspect-square bg-[#5762e4]"
+        href="https://github.com/Next-DAO"
+        target="__blank"
+      >
+        <Image src="/github.svg" alt="github" fill />
+      </a>
+    </div>
+  );
   return (
     <section className="bg-secondary pb-20 md:pb-28 xl:pb-36 ">
       <div className="mx-auto pt-3 md:pt-9">
@@ -27,6 +58,7 @@ export const Intro = () => {
             <div className="absolute left-[-6px] right-[-7px] bottom-[-71px] h-[75px]">
               <Image src="/intro-bottom-sm.png" alt="intro top border" fill />
             </div>
+            {links}
           </div>
 
           {/* md */}
@@ -44,6 +76,7 @@ export const Intro = () => {
             <div className="absolute left-[-11.5px] right-[-13px] bottom-[-140px] h-[144px]">
               <Image src="/intro-bottom-md.png" alt="intro top border" fill />
             </div>
+            {links}
           </div>
 
           {/* lg */}
@@ -61,23 +94,8 @@ export const Intro = () => {
             <div className="absolute left-[-13px] right-[-15px] bottom-[-180px] h-[186px]">
               <Image src="/intro-bottom-lg.png" alt="intro top border" fill />
             </div>
+            {links}
           </div>
-
-          {/* <div className="relative w-[366px] md:w-[697px] lg:w-[906px] h-[280px]">
-            <Image src="/introduction.png" alt="introduction" fill />
-            <p className="absolute text-white text-sm md:text-xl lg:text-2xl pt-12 md:pt-[85px] lg:pt-32 px-8 md:px-4 lg:px-16 text-center font-serif">
-              {t("introduction")}
-            </p>
-            <div className="absolute bottom-[10px] right-[20px]">
-              <a
-                className="block w-7 aspect-square bg-[#5762e4]"
-                href="https://github.com/Next-DAO"
-                target="__blank"
-              >
-                <Image src="/github.svg" alt="introduction" fill />
-              </a>
-            </div>
-          </div> */}
         </div>
       </div>
     </section>
