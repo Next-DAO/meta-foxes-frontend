@@ -39,7 +39,32 @@ export const Intro = () => {
       <div className="mx-auto pt-3 md:pt-9">
         <div className="flex justify-center">
           <div className="relative w-95 md:w-189 lg:w-250 aspect-[1000/577]">
-            <Image src="/banner.png" alt="banner" fill priority />
+            <div
+              className="absolute aspect-[975.5/533]
+                          w-[370.7px] md:w-[737.5px] lg:w-[975.5px]
+                          right-[4.5px] md:right-[9.3px] lg:right-[12.25px] "
+            >
+              <Image
+                src="/banner/background.png"
+                alt="background"
+                priority
+                fill
+              />
+            </div>
+            <div className="absolute w-95 md:w-189 lg:w-250 aspect-[1000/549.5] bottom-0 animate-pulse">
+              <Image
+                src="/banner/background-stars.png"
+                alt="background-stars"
+                fill
+              />
+            </div>
+            <div
+              className="absolute aspect-[336.5/420] w-[128px] md:w-[254.5px] lg:w-[336.5px] 
+                            left-[123.5px] md:left-[245.7px] lg:left-[325px] 
+                            top-[19px] md:top-[37.8px] lg:top-[50px] animate-floating"
+            >
+              <Image src="/banner/fox.png" alt="fox" fill priority />
+            </div>
           </div>
         </div>
         <div className="flex justify-center relative">
