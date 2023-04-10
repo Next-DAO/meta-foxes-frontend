@@ -9,17 +9,17 @@ import { Noto_Sans_SC } from "next/font/google";
 
 const NotoSans = Noto_Sans_SC({
   subsets: ["latin"],
-  weight: "700",
+  weight: "500",
   variable: "--font-noto-sans",
 });
 
 const cakeNTrufflesFont = localFont({
-  src: "./cake-n-truffles.ttf",
+  src: "./cake-n-truffles.woff2",
   variable: "--font-cake-n-truffles",
 });
 
 const jingNanYuanMo = localFont({
-  src: "./JingNanYuanMo.otf",
+  src: "./JingNanYuanMo.woff2",
   variable: "--font-JingNanYuanMo",
 });
 

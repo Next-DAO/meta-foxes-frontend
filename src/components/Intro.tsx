@@ -85,7 +85,7 @@ export const Intro = () => {
                        border-x-4 border-black shadow-[0_0_0_6px_#ff9111,0_0_0_10px_#000]
                        hidden lg:block"
           >
-            <p className="text-white text-2xl text-center font-notoSans px-16 pt-12 pb-5">
+            <p className="text-white text-2xl text-center font-notoSans px-14 pt-12 pb-5">
               {t("introduction")}
             </p>
             <div className="absolute left-[-14px] right-[-14px] top-[-80px] h-[108px]">
