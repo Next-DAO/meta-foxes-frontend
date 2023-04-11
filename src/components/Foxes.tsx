@@ -3,9 +3,8 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
 export const Foxes = () => {
-  const { t } = useTranslation();
-  const router = useRouter();
-  const isZhCn = router.locale === "zh";
+  const { t, i18n } = useTranslation();
+  const isZhCn = i18n.language === "zh";
   const customizationBtnStyle = isZhCn ? "font-jingNanYuanMo" : "font-sans";
 
   return (

@@ -12,7 +12,7 @@ export const LanguageDropdown = () => {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="flex w-full items-center px-1">
-          <div className="relative w-6 md:w-9 aspect-square">
+          <div className="relative w-6 md:w-12 aspect-square">
             <Image src="/language.svg" alt="Language" fill />
           </div>
         </Menu.Button>

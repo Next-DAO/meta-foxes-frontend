@@ -12,12 +12,9 @@ export const useRainbowTheme = () => {
     theme.shadows.connectButton = "0 0 0 4px black;";
     theme.colors.accentColor = "#FF9321";
     theme.colors.accentColorForeground = "#000";
-    theme.fonts.body = isZhCn
-      ? "var(--font-JingNanYuanMo)"
-      : "var(--font-cake-n-truffles)";
 
     return theme;
-  }, [isZhCn]);
+  }, []);
 
   return theme;
 };

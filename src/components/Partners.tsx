@@ -4,9 +4,8 @@ import { FC } from "react";
 import { useTranslation } from "next-i18next";
 
 export const Partners: FC = () => {
-  const { t } = useTranslation();
-  const router = useRouter();
-  const isZhCn = router.locale === "zh";
+  const { t, i18n } = useTranslation();
+  const isZhCn = i18n.language === "zh";
   const customizationBtnStyle = isZhCn ? "font-jingNanYuanMo" : "font-sans";
   const aClasses =
     "block flex items-center justify-center bg-white w-[177px] md:w-[264px] h-[64px] md:h-[96px] border-4 rounded-lg border-black";
