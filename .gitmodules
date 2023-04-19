@@ -1,0 +1,3 @@
+[submodule "meta-foxes-contract"]
+	path = meta-foxes-contract
+	url = https://github.com/Next-DAO/meta-foxes-contract

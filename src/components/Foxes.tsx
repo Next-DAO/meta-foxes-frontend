@@ -1,11 +1,22 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import { useGetWhitelist } from "@/hooks/useGetWhitelist";
+import { useAccount } from "wagmi";
 
 export const Foxes = () => {
   const { t, i18n } = useTranslation();
   const isZhCn = i18n.language === "zh";
   const customizationBtnStyle = isZhCn ? "font-jingNanYuanMo" : "font-sans";
+  const { address } = useAccount();
+  const { whitelist } = useGetWhitelist();
+  const isWhitelisted = !!whitelist?.[address?.toLocaleLowerCase()!];
+  const handleMint = () => {
+    if (isWhitelisted) {
+      // mint
+      console.log("mint");
+    }
+  };
 
   return (
     <section className="bg-tertiary pt-20 pb-16 md:pb-36 lg:pb-40">
@@ -56,12 +67,16 @@ export const Foxes = () => {
             </div>
             <div className="absolute bottom-6 left-0 right-0 flex justify-center">
               <a
-                href="https://metafox.paperform.co"
-                className={`${customizationBtnStyle} text-2xl text-white text-center bg-secondary rounded-full border-black
+                {...(!isWhitelisted && {
+                  href: "https://metafox.paperform.co",
+                })}
+                onClick={handleMint}
+                // href="https://metafox.paperform.co"
+                className={`${customizationBtnStyle} hover:cursor-pointer text-2xl text-white text-center bg-secondary rounded-full border-black
                             w-[260px] h-[44px] leading-[44px] border-2 shadow-[0_0_0_2px_#ff9111,0_0_0_4px_#000]
                             md:text-4xl md:w-[359px] md:h-[60px] md:leading-[56px] md:border-4 md:shadow-[0_0_0_4px_#ff9111,0_0_0_8px_#000]`}
               >
-                {t("customization")}
+                {t(isWhitelisted ? "mint" : "customization")}
               </a>
             </div>
           </div>
