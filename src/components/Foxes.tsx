@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { useGetWhitelist } from "@/hooks/useGetWhitelist";
-import { useAccount } from "wagmi";
+import { useAccount, useContractRead, Address } from "wagmi";
+import * as abi from "../../meta-foxes-contract/abi/goerli.json";
 
 export const Foxes = () => {
   const { t, i18n } = useTranslation();
@@ -17,6 +17,16 @@ export const Foxes = () => {
       console.log("mint");
     }
   };
+  console.log("abi", abi);
+
+  const { data, isError, isLoading } = useContractRead({
+    address: abi.contracts.MetaFoxesGenesis.address as Address,
+    abi: abi.contracts.MetaFoxesGenesis.abi,
+    functionName: "numberMinted",
+    args: [address],
+  });
+
+  console.log("data", data);
 
   return (
     <section className="bg-tertiary pt-20 pb-16 md:pb-36 lg:pb-40">
