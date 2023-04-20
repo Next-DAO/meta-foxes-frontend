@@ -5,9 +5,12 @@ import { useContractWrite, usePrepareContractWrite } from "wagmi";
 
 // TODO: conditional load abi by env
 import abi from "../../meta-foxes-contract/abi/goerli.json";
-import { ethers } from "ethers";
+import { BigNumber, ethers } from "ethers";
 import { FC } from "react";
 import { Button } from "./Button";
+import { toast } from "react-toastify";
+
+const MINT_PRICE = "0.1"; // ethers
 
 export const ApplyOrMint = () => {
   const { t } = useTranslation();
@@ -38,16 +41,16 @@ const Mint: FC<{ address: string; signature: Signature }> = ({
     functionName: "numberMinted",
     args: [address],
   });
-  const hasMinted = !numberMinted;
+
+  const hasMinted = !(numberMinted as BigNumber).isZero();
 
   if (hasMinted) {
     return (
       <div
         className={`${customizationBtnStyle} text-2xl md:text-5xl text-white text-center w-80 md:w-96`}
         style={{
-          // @ts-ignore
-          "-webkit-text-stroke-width": "2px",
-          "-webkit-text-stroke-color": "black",
+          WebkitTextStrokeWidth: 2,
+          WebkitTextStrokeColor: "#000",
         }}
       >
         {t("minted")}
@@ -61,19 +64,43 @@ const Mint: FC<{ address: string; signature: Signature }> = ({
 const MintButton: FC<{ signature: Signature }> = ({ signature }) => {
   const { t } = useTranslation();
 
-  const { config } = usePrepareContractWrite({
+  const { config, status } = usePrepareContractWrite({
     address: abi.contracts.MetaFoxesGenesis.address as Address,
     abi: abi.contracts.MetaFoxesGenesis.abi,
     functionName: "mint",
     args: [1, signature?.salt, signature?.token],
     overrides: {
-      value: ethers.utils.parseEther("0.1"),
+      value: ethers.utils.parseEther(MINT_PRICE),
     },
   });
-  const { isLoading, write } = useContractWrite(config);
 
-  const handleMint = () => {
-    write?.();
+  const { isLoading, writeAsync } = useContractWrite(config);
+
+  const handleMint = async () => {
+    if (!writeAsync) {
+      return;
+    }
+    const toastId = toast.loading("Waiting for wallet confirmation...");
+    try {
+      const tx = await writeAsync();
+      toast.update(toastId, {
+        // TODO: hash should a link to etherscan?
+        render: `Minting... ${tx.hash}`,
+      });
+      await tx.wait();
+      toast.update(toastId, {
+        render: `Mint success. ${tx.hash}`,
+        type: "success",
+      });
+    } catch (error) {
+      const msg =
+        error instanceof Error ? error.message : "Transaction failed.";
+      toast.update(toastId, {
+        render: msg,
+        type: "error",
+        isLoading: false,
+      });
+    }
   };
 
   return (
