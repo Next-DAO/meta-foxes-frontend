@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 
-// TODO: env this!
-const WHITELIST_URL =
-  "https://raw.githubusercontent.com/Next-DAO/meta-foxes-contract/main/data/goerli_signatures.json";
+export type Signature = {
+  salt: string;
+  token: string;
+};
 
-type WhiteList = Record<string, string>;
+type WhiteList = Record<string, Signature>;
 
 export const useGetWhitelist = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [whitelist, setWhitelist] = useState<WhiteList | undefined>();
   useEffect(() => {
-    fetch(WHITELIST_URL)
+    fetch(process.env.NEXT_PUBLIC_WHITELIST_URL!)
       .then((res) => res.json())
       .then((data) => setWhitelist(data))
       .finally(() => setIsLoading(false));
