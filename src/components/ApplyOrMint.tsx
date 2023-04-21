@@ -44,6 +44,10 @@ const Mint: FC<{ address: string; signature: Signature; abi: any }> = ({
     args: [address],
   });
 
+  if (numberMinted === undefined) {
+    return null;
+  }
+
   const hasMinted = !(numberMinted as any as BigNumber).isZero();
 
   if (hasMinted) {
