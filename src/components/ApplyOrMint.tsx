@@ -142,12 +142,11 @@ const MintButton: FC<{
 };
 
 const TxLink: FC<{ tx: string }> = ({ tx }) => {
+  const prefix = `https://${
+    process.env.NEXT_PUBLIC_CHAIN === "mainnet" ? "" : "goerli."
+  }etherscan.io/tx/`;
   return (
-    <a
-      className="underline"
-      href={process.env.NEXT_PUBLIC_TX_LINK_PREFIX + tx}
-      target="_blank"
-    >
+    <a className="underline" href={prefix + tx} target="_blank">
       Transaction Details
     </a>
   );

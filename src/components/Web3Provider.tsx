@@ -3,9 +3,7 @@ import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
 import { ReactNode } from "react";
-import { goerli } from "wagmi/chains";
-import { lightTheme } from "@rainbow-me/rainbowkit";
-import { useRouter } from "next/router";
+import { mainnet, goerli } from "wagmi/chains";
 import { useRainbowTheme } from "../hooks/useRainbowTheme";
 
 import { connectorsForWallets } from "@rainbow-me/rainbowkit";
@@ -18,9 +16,7 @@ import {
 } from "@rainbow-me/rainbowkit/wallets";
 
 const { chains, provider } = configureChains(
-  // TODO: use mainnet in production
-  // [mainnet],
-  [goerli],
+  [process.env.NEXT_PUBLIC_CHAIN === "mainnet" ? mainnet : goerli],
   [publicProvider()]
 );
 
