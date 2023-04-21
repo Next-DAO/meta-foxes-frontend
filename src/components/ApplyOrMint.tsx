@@ -84,7 +84,7 @@ const MintButton: FC<{
     address: abi.contracts.MetaFoxesGenesis.address as Address,
     abi: abi.contracts.MetaFoxesGenesis.abi,
     functionName: "mint",
-    args: [1, signature?.salt, signature?.token],
+    args: [1, signature.salt, signature.token],
     overrides: {
       value: ethers.utils.parseEther(MINT_PRICE),
     },
