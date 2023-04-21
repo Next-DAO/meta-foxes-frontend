@@ -6,7 +6,7 @@ import { useContractWrite, usePrepareContractWrite } from "wagmi";
 // TODO: conditional load abi by env
 import abi from "../../meta-foxes-contract/abi/goerli.json";
 import { BigNumber, ethers } from "ethers";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Button } from "./Button";
 import { toast } from "react-toastify";
 
@@ -35,7 +35,7 @@ const Mint: FC<{ address: string; signature: Signature }> = ({
   const isZhCn = i18n.language === "zh";
   const customizationBtnStyle = isZhCn ? "font-jingNanYuanMo" : "font-sans";
 
-  const { data: numberMinted } = useContractRead({
+  const { data: numberMinted, refetch: refetchNumberMinted } = useContractRead({
     address: abi.contracts.MetaFoxesGenesis.address as Address,
     abi: abi.contracts.MetaFoxesGenesis.abi,
     functionName: "numberMinted",
@@ -58,13 +58,21 @@ const Mint: FC<{ address: string; signature: Signature }> = ({
     );
   }
 
-  return <MintButton signature={signature} />;
+  return (
+    <MintButton
+      signature={signature}
+      refetchNumberMinted={refetchNumberMinted}
+    />
+  );
 };
 
-const MintButton: FC<{ signature: Signature }> = ({ signature }) => {
+const MintButton: FC<{
+  signature: Signature;
+  refetchNumberMinted: () => void;
+}> = ({ signature, refetchNumberMinted }) => {
   const { t } = useTranslation();
 
-  const { config, status } = usePrepareContractWrite({
+  const { config } = usePrepareContractWrite({
     address: abi.contracts.MetaFoxesGenesis.address as Address,
     abi: abi.contracts.MetaFoxesGenesis.abi,
     functionName: "mint",
@@ -74,40 +82,73 @@ const MintButton: FC<{ signature: Signature }> = ({ signature }) => {
     },
   });
 
-  const { isLoading, writeAsync } = useContractWrite(config);
+  const { writeAsync } = useContractWrite(config);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const handleMint = async () => {
     if (!writeAsync) {
       return;
     }
-    const toastId = toast.loading("Waiting for wallet confirmation...");
+    const toastId = toast("Waiting for wallet confirmation...", {
+      closeButton: false,
+      isLoading: true,
+      autoClose: false,
+    });
     try {
+      setIsProcessing(true);
       const tx = await writeAsync();
       toast.update(toastId, {
-        // TODO: hash should a link to etherscan?
-        render: `Minting... ${tx.hash}`,
+        render: (
+          <span>
+            Minting... <TxLink tx={tx.hash} />
+          </span>
+        ),
       });
       await tx.wait();
       toast.update(toastId, {
-        render: `Mint success. ${tx.hash}`,
-        type: "success",
+        render: (
+          <span>
+            Mint success. <TxLink tx={tx.hash} />
+          </span>
+        ),
+        closeButton: true,
+        isLoading: false,
+        autoClose: 5000,
+        type: toast.TYPE.SUCCESS,
       });
+      refetchNumberMinted();
     } catch (error) {
       const msg =
         error instanceof Error ? error.message : "Transaction failed.";
       toast.update(toastId, {
-        render: msg,
-        type: "error",
+        closeButton: true,
         isLoading: false,
+        render: msg,
+        autoClose: 5000,
+        type: toast.TYPE.ERROR,
       });
+    } finally {
+      setIsProcessing(false);
     }
   };
 
   return (
     <Button
       onClick={handleMint}
-      title={t(isLoading ? "processing" : "mint")}
-      disabled={isLoading}
+      title={t(isProcessing ? "processing" : "mint")}
+      disabled={isProcessing}
     />
+  );
+};
+
+const TxLink: FC<{ tx: string }> = ({ tx }) => {
+  return (
+    <a
+      className="underline"
+      href={process.env.NEXT_PUBLIC_TX_LINK_PREFIX + tx}
+      target="_blank"
+    >
+      Transaction Details
+    </a>
   );
 };
