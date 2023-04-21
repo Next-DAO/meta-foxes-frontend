@@ -3,12 +3,11 @@ import { useGetWhitelist, Signature } from "@/hooks/useGetWhitelist";
 import { useAccount, useContractRead, Address } from "wagmi";
 import { useContractWrite, usePrepareContractWrite } from "wagmi";
 
-// TODO: conditional load abi by env
-import abi from "../../meta-foxes-contract/abi/goerli.json";
 import { BigNumber, ethers } from "ethers";
 import { FC, useState } from "react";
 import { Button } from "./Button";
 import { toast } from "react-toastify";
+import { useAbi } from "../hooks/useAbi";
 
 const MINT_PRICE = "0.1"; // ethers
 
@@ -18,18 +17,21 @@ export const ApplyOrMint = () => {
   const { whitelist } = useGetWhitelist();
   const signature = whitelist?.[address?.toLocaleLowerCase()!];
   const isWhitelisted = !!signature;
+  const abi = useAbi(isWhitelisted);
+
   if (!isWhitelisted) {
     return (
       <Button href="https://metafox.paperform.co" title={t("customization")} />
     );
   }
 
-  return <Mint address={address!} signature={signature} />;
+  return abi && <Mint address={address!} signature={signature} abi={abi} />;
 };
 
-const Mint: FC<{ address: string; signature: Signature }> = ({
+const Mint: FC<{ address: string; signature: Signature; abi: any }> = ({
   address,
   signature,
+  abi,
 }) => {
   const { t, i18n } = useTranslation();
   const isZhCn = i18n.language === "zh";
@@ -42,7 +44,7 @@ const Mint: FC<{ address: string; signature: Signature }> = ({
     args: [address],
   });
 
-  const hasMinted = !(numberMinted as BigNumber).isZero();
+  const hasMinted = !(numberMinted as any as BigNumber).isZero();
 
   if (hasMinted) {
     return (
@@ -62,6 +64,7 @@ const Mint: FC<{ address: string; signature: Signature }> = ({
     <MintButton
       signature={signature}
       refetchNumberMinted={refetchNumberMinted}
+      abi={abi}
     />
   );
 };
@@ -69,7 +72,8 @@ const Mint: FC<{ address: string; signature: Signature }> = ({
 const MintButton: FC<{
   signature: Signature;
   refetchNumberMinted: () => void;
-}> = ({ signature, refetchNumberMinted }) => {
+  abi: any;
+}> = ({ signature, refetchNumberMinted, abi }) => {
   const { t } = useTranslation();
 
   const { config } = usePrepareContractWrite({
