@@ -80,7 +80,7 @@ const MintButton: FC<{
 }> = ({ signature, refetchNumberMinted, abi }) => {
   const { t } = useTranslation();
 
-  const { config } = usePrepareContractWrite({
+  const { config, error } = usePrepareContractWrite({
     address: abi.contracts.MetaFoxesGenesis.address as Address,
     abi: abi.contracts.MetaFoxesGenesis.abi,
     functionName: "mint",
@@ -94,6 +94,10 @@ const MintButton: FC<{
   const [isProcessing, setIsProcessing] = useState(false);
 
   const handleMint = async () => {
+    if (error) {
+      toast.error((error as any).code ?? error.message ?? "Transaction error");
+      return;
+    }
     if (!writeAsync) {
       return;
     }
