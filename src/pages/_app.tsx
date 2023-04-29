@@ -1,11 +1,13 @@
 import { appWithTranslation } from "next-i18next";
-import "@/styles/globals.css";
+import { ToastContainer } from "react-toastify";
 import type { AppProps } from "next/app";
 import Header from "../components/Header";
 import localFont from "next/font/local";
-import { Analytics } from "@vercel/analytics/react";
-
 import { Noto_Sans_SC } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { Web3Provider } from "../components/Web3Provider";
+import "@/styles/globals.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const NotoSans = Noto_Sans_SC({
   subsets: ["latin"],
@@ -28,9 +30,12 @@ function App({ Component, pageProps }: AppProps) {
     <div
       className={`${cakeNTrufflesFont.variable} ${NotoSans.variable} ${jingNanYuanMo.variable}`}
     >
-      <Header />
-      <Component {...pageProps} />
-      <Analytics />
+      <Web3Provider>
+        <Header />
+        <Component {...pageProps} />
+        <ToastContainer />
+        <Analytics />
+      </Web3Provider>
     </div>
   );
 }

@@ -1,13 +1,7 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
+import { ApplyOrMint } from "./ApplyOrMint";
 
 export const Foxes = () => {
-  const { t } = useTranslation();
-  const router = useRouter();
-  const isZhCn = router.locale === "zh";
-  const customizationBtnStyle = isZhCn ? "font-jingNanYuanMo" : "font-sans";
-
   return (
     <section className="bg-tertiary pt-20 pb-16 md:pb-36 lg:pb-40">
       <div className="flex justify-center -mt-36 md:-mt-40">
@@ -56,14 +50,7 @@ export const Foxes = () => {
               <Image src="/stars.png" alt="stars" fill />
             </div>
             <div className="absolute bottom-6 left-0 right-0 flex justify-center">
-              <a
-                href="https://0c5mmv5ifyn.typeform.com/to/Xsf4q1RX"
-                className={`${customizationBtnStyle} text-2xl text-white text-center bg-secondary rounded-full border-black
-                            w-[260px] h-[44px] leading-[44px] border-2 shadow-[0_0_0_2px_#ff9111,0_0_0_4px_#000]
-                            md:text-4xl md:w-[359px] md:h-[60px] md:leading-[56px] md:border-4 md:shadow-[0_0_0_4px_#ff9111,0_0_0_8px_#000]`}
-              >
-                {t("customization")}
-              </a>
+              <ApplyOrMint />
             </div>
           </div>
         </div>
