@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Head>
         <title>Meta Foxes</title>
-        <meta name="description" content="NFT project by NextDAO" />
+        <meta name="description" content="Meta Foxes is an NFT collection initiated by the NextDAO community. Every Meta Fox is painstakingly crafted and customized by artists for its owner, without using any artificial intelligence or automation technology. We are committed to using unique designs for each NFT, highlighting its unique story and personality, making it a valuable collectible." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.png" />
       </Head>
