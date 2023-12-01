@@ -22,7 +22,9 @@ export const ApplyOrMint = () => {
   if (!isWhitelisted) {
     return (
       <Button
+        href="https://0c5mmv5ifyn.typeform.com/to/Xsf4q1RX"
         title={t("customization")}
+        disabled
       />
     );
   }
