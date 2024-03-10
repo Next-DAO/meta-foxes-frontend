@@ -9,7 +9,7 @@ import { Button } from "./Button";
 import { toast } from "react-toastify";
 import { useAbi } from "../hooks/useAbi";
 
-const MINT_PRICE = "0.1"; // ethers
+const MINT_PRICE = "0.2"; // ethers
 
 export const ApplyOrMint = () => {
   const { t } = useTranslation();
