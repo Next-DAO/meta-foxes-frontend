@@ -24,7 +24,6 @@ export const ApplyOrMint = () => {
       <Button
         href="https://form.typeform.com/to/Xsf4q1RX"
         title={t("customization")}
-        disabled
       />
     );
   }
