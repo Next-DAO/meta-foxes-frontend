@@ -15,6 +15,8 @@ import {
   walletConnectWallet,
 } from "@rainbow-me/rainbowkit/wallets";
 
+const projectId = '9d920b7f8ab9e75fd0680dfb919257be';
+
 const { chains, provider } = configureChains(
   [process.env.NEXT_PUBLIC_CHAIN === "mainnet" ? mainnet : goerli],
   [publicProvider()]
@@ -24,11 +26,11 @@ const connectors = connectorsForWallets([
   {
     groupName: "Suggested",
     wallets: [
-      injectedWallet({ chains }),
-      metaMaskWallet({ chains }),
-      coinbaseWallet({ chains, appName: "Meta Foxes" }),
-      walletConnectWallet({ chains }),
-      rainbowWallet({ chains }),
+      injectedWallet({ projectId, chains }),
+      metaMaskWallet({ projectId, chains }),
+      coinbaseWallet({ projectId, chains, appName: "Meta Foxes" }),
+      walletConnectWallet({ projectId, chains }),
+      rainbowWallet({ projectId, chains }),
     ],
   },
 ]);
