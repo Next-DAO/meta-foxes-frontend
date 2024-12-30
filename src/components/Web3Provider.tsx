@@ -1,5 +1,6 @@
 import "@rainbow-me/rainbowkit/styles.css";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
 import { ReactNode } from "react";
@@ -17,7 +18,18 @@ import {
 
 const { chains, provider } = configureChains(
   [process.env.NEXT_PUBLIC_CHAIN === "mainnet" ? mainnet : goerli],
-  [publicProvider()]
+  [
+    jsonRpcProvider({
+      rpc: (chain) =>
+        chain.id === mainnet.id
+          ? {
+              http: process.env.NEXT_PUBLIC_MAINNET_RPC_HTTP,
+              webSocket: process.env.NEXT_PUBLIC_MAINNET_RPC_WEBSOCKET,
+            }
+          : null,
+    }),
+    publicProvider(),
+  ]
 );
 
 const connectors = connectorsForWallets([
