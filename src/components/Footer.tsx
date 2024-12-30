@@ -9,7 +9,7 @@ export const Footer = () => {
         </div>
       </div>
       <p className="text-white font-notoSans text-center">
-        {`All rights reserved by NextDAO © ${new Date().getFullYear()}`}
+        {`All rights reserved by NextDAO © 2021 - ${new Date().getFullYear()}`}
       </p>
     </section>
   );
